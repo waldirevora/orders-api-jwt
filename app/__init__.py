@@ -5,6 +5,7 @@ from flask import Flask
 from app.routes.users import users_bp
 from app.extensions import db
 from app.routes.auth import auth_bp
+from app.routes.orders import orders_bp
 
 
 def create_app():
@@ -27,6 +28,8 @@ def create_app():
     app.register_blueprint(auth_bp)
 
     app.register_blueprint(users_bp)
+
+    app.register_blueprint(orders_bp)
 
     @app.get("/")
     def home():
